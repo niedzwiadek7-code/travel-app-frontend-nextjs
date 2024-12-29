@@ -1,25 +1,34 @@
+import { cookies } from "next/headers";
+import {NextResponse} from "next/server";
+
 type IBody = {
   email: string;
   password: string;
 }
 
 export async function POST(
-  request: Request
+  req: Request,
 ) {
-  const getBody = async () => {
-    const contentType = request.headers.get('Content-Type') || '';
-
-    switch (contentType) {
-      case 'application/json':
-        return await request.json();
-      case 'application/x-www-form-urlencoded':
-        const formData = await request.formData();
-        return Object.fromEntries(formData);
-      default:
-        throw new Error('Invalid content type');
+  const body: IBody = await req.json()
+  const backendResponse = await fetch(
+    `${process.env.BACKEND_URL}/auth/signin`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
     }
-  }
+  )
 
-  const body: IBody = await getBody()
-  return Response.json(body)
+  const status = backendResponse.status
+  const response = await backendResponse.json()
+
+  console.log('status', status)
+  console.log('response', response)
+
+  const cookieStore = await cookies()
+  cookieStore.set('accessToken', response.access_token)
+
+  return NextResponse.json(response, {status})
 }
