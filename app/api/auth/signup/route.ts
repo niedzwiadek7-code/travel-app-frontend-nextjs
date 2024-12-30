@@ -11,7 +11,7 @@ export async function POST(
 ) {
   const body: IBody = await req.json()
   const backendResponse = await fetch(
-    `${process.env.BACKEND_URL}/auth/signin`,
+    `${process.env.BACKEND_URL}/auth/signup`,
     {
       method: 'POST',
       headers: {

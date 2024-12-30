@@ -3,14 +3,13 @@ import Typography from "@mui/joy/Typography";
 import Link from "@mui/joy/Link";
 import * as React from "react";
 import {Box} from "@mui/joy";
-import Form from "./components/Form";
+import Form from "./Form";
 
 const Login = () => {
   return (
         <Sheet
           sx={{
             width: 400,
-            mx: 1,
             py: 3,
             px: 4,
             display: 'flex',
@@ -18,6 +17,7 @@ const Login = () => {
             gap: 2,
             borderRadius: 'sm',
             boxShadow: 'md',
+            marginTop: '5rem',
           }}
           variant="outlined"
         >
@@ -26,20 +26,20 @@ const Login = () => {
             component='h1'
             sx={{ textAlign: 'center' }}
           >
-            Travel App
+            Sign Up
           </Typography>
           <Box>
             <Typography level="h4" component="h1">
               <b>Welcome!</b>
             </Typography>
-            <Typography level="body-sm">Sign in to continue.</Typography>
+            <Typography level="body-sm">Sign up to continue.</Typography>
           </Box>
           <Form />
           <Typography
-            endDecorator={<Link href="/public/register">Sign up</Link>}
+            endDecorator={<Link href="/public/login">Sign in</Link>}
             sx={{ fontSize: 'sm', alignSelf: 'center' }}
           >
-            Don&apos;t have an account?
+            Have an account?
           </Typography>
         </Sheet>
   )

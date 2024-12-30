@@ -33,10 +33,11 @@ const Layout: React.FC<Props> = ({
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          height: '100vh',
+          minHeight: '100vh',
+          paddingBottom: 3,
         }}
       >
-        {children}
+          {children}
       </Sheet>
     </>
   )
