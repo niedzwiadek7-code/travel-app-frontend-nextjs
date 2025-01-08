@@ -3,31 +3,33 @@
 import Button from "@mui/joy/Button";
 import { redirect } from 'next/navigation'
 import {useState} from "react";
+import HeaderPath from "@/components/ui/HeaderPath";
+import {Home} from "@mui/icons-material";
+import Typography from "@mui/joy/Typography";
+import {Box} from "@mui/joy";
 
 const Dashboard = () => {
-  const [loading, setLoading] = useState(false)
-
-  const logout = async () => {
-    setLoading(true)
-    await fetch('/api/auth/logout', {
-      method: 'POST',
-    })
-
-    redirect('/public/login')
-  }
-
     return (
-        <div>
-            <h1>Dashboard</h1>
-            <Button
-              type="submit"
-              color="primary"
-              onClick={logout}
-              loading={loading}
-            >
-              Logout
-            </Button>
-        </div>
+      <div>
+        <HeaderPath
+          elements={[<Home key={0} />, 'Strona główna']}
+        />
+        <Box
+          sx={{
+            display: 'flex',
+            mb: 1,
+            gap: 1,
+            flexDirection: { xs: 'column', sm: 'row' },
+            alignItems: { xs: 'start', sm: 'center' },
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+          }}
+        >
+          <Typography level="h2" component="h1">
+            Strona główna
+          </Typography>
+        </Box>
+      </div>
     )
 }
 

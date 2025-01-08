@@ -73,10 +73,10 @@ const Form = () => {
         <FormControl
           error={!!errors.firstName}
         >
-          <FormLabel>First Name</FormLabel>
+          <FormLabel>Imię</FormLabel>
           <Input
             startDecorator={<Person/>}
-            placeholder='First Name'
+            placeholder='Imię'
             {...register('firstName')}
           />
           <FormHelperText>{errors.firstName?.message}</FormHelperText>
@@ -85,10 +85,10 @@ const Form = () => {
         <FormControl
           error={!!errors.lastName}
         >
-          <FormLabel>Last Name</FormLabel>
+          <FormLabel>Nazwisko</FormLabel>
           <Input
             startDecorator={<Person/>}
-            placeholder='Last Name'
+            placeholder='Nazwisko'
             {...register('lastName')}
           />
           <FormHelperText>{errors.lastName?.message}</FormHelperText>
@@ -110,11 +110,11 @@ const Form = () => {
         <FormControl
           error={!!errors.password}
         >
-          <FormLabel>Password</FormLabel>
+          <FormLabel>Hasło</FormLabel>
           <Input
             startDecorator={<Key/>}
             type={'password'}
-            placeholder='Password'
+            placeholder='Hasło'
             {...register('password')}
           />
           <FormHelperText>{errors.password?.message}</FormHelperText>
@@ -125,7 +125,7 @@ const Form = () => {
           type='submit'
           loading={loading}
         >
-          Register
+          Zarejestruj się
         </Button>
       </form>
 
@@ -144,7 +144,7 @@ const Form = () => {
             color='danger'
             level='h4'
           >
-            Register Error
+            Błąd podczas rejestracji
           </Typography>
           <Typography>
             {errorMessage}

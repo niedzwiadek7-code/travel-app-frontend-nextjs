@@ -18,8 +18,8 @@ export default function RootLayout({
       <body>
         <AppRouterCacheProvider>
           <StyledRoot>
-            {children}
             <CssBaseline />
+            {children}
           </StyledRoot>
         </AppRouterCacheProvider>
       </body>

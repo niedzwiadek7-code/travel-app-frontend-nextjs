@@ -26,20 +26,20 @@ const Login = () => {
             component='h1'
             sx={{ textAlign: 'center' }}
           >
-            Sign Up
+            Rejestracja
           </Typography>
           <Box>
             <Typography level="h4" component="h1">
-              <b>Welcome!</b>
+              <b>Witaj podróżniku!</b>
             </Typography>
-            <Typography level="body-sm">Sign up to continue.</Typography>
+            <Typography level="body-sm">Zarejestruj się, by kontynuować.</Typography>
           </Box>
           <Form />
           <Typography
-            endDecorator={<Link href="/public/login">Sign in</Link>}
+            endDecorator={<Link href="/public/login">Zaloguj się</Link>}
             sx={{ fontSize: 'sm', alignSelf: 'center' }}
           >
-            Have an account?
+            Masz już konto?
           </Typography>
         </Sheet>
   )

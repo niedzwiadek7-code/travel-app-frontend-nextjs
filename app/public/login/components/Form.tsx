@@ -76,11 +76,11 @@ const Form = () => {
         <FormControl
           error={!!errors.password}
         >
-          <FormLabel>Password</FormLabel>
+          <FormLabel>Hasło</FormLabel>
           <Input
             startDecorator={<Key/>}
             type={'password'}
-            placeholder='Password'
+            placeholder='Hasło'
             {...register('password')}
           />
           <FormHelperText>{errors.password?.message}</FormHelperText>
@@ -91,7 +91,7 @@ const Form = () => {
           type='submit'
           loading={loading}
         >
-          Log in
+          Zaloguj się
         </Button>
       </form>
 
@@ -110,10 +110,10 @@ const Form = () => {
             color='danger'
             level='h4'
           >
-            Login Error
+            Wystąpił błąd
           </Typography>
           <Typography>
-            Invalid email or password
+            Nie udało się zalogować. Spróbuj ponownie.
           </Typography>
         </ModalDialog>
       </Modal>
