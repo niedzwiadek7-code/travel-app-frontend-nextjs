@@ -2,14 +2,42 @@ import React, {ReactNode} from "react";
 import {Box} from "@mui/joy";
 import Header from "@/app/auth/components/Header";
 import Sidebar from "@/app/auth/components/Sidebar";
+import {cookies} from "next/headers";
+import {string} from "yup";
 
 type Props = {
   children: ReactNode;
 }
 
-const Layout: React.FC<Props> = ({
-  children,
+const Layout: React.FC<Props> = async ({
+  children
 }) => {
+  const getProfileData = async () => {
+    // return new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve({
+    //       name: 'John Doe',
+    //       email: 'johndoe@mail.com'
+    //     })
+    //   }, 3000)
+    // })
+
+    // const cookiesStore = await cookies()
+    // const x = cookiesStore.get('accessToken')
+    // console.log(x)
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/user`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+
+    return await response.json()
+  }
+
+  const data = await getProfileData()
+  console.log(data)
+
   return (
     <Box
       sx={{
