@@ -21,6 +21,7 @@ import ColorSchemeToggle from './ColorSchemeToggle';
 import {AirplanemodeActive, Create, TravelExplore} from "@mui/icons-material";
 import {redirect, usePathname} from "next/navigation";
 import {ReactNode, useState} from "react";
+import {User} from "@/model";
 
 const closeSidebar = () => {
   if (typeof window !== 'undefined') {
@@ -35,7 +36,13 @@ type Card = {
   icon: ReactNode
 }
 
-const Sidebar = () => {
+type Props = {
+  profile: User
+}
+
+const Sidebar: React.FC<Props> = ({
+  profile,
+}) => {
   const pathname = usePathname()
 
   const [loading, setLoading] = useState(false)
@@ -193,14 +200,14 @@ const Sidebar = () => {
       </Box>
       <Divider />
       <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
-        <Avatar
-          variant="outlined"
-          size="sm"
-          src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=286"
-        />
+        {/*<Avatar*/}
+        {/*  variant="outlined"*/}
+        {/*  size="sm"*/}
+        {/*  src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=286"*/}
+        {/*/>*/}
         <Box sx={{ minWidth: 0, flex: 1 }}>
-          <Typography level="title-sm">Siriwat K.</Typography>
-          <Typography level="body-xs">siriwatk@test.com</Typography>
+          <Typography level="title-sm">{profile.firstName} {profile.lastName}</Typography>
+          <Typography level="body-xs">{profile.email}</Typography>
         </Box>
         <IconButton
           size="sm"

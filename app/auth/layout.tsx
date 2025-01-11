@@ -2,14 +2,30 @@ import React, {ReactNode} from "react";
 import {Box} from "@mui/joy";
 import Header from "@/app/auth/components/Header";
 import Sidebar from "@/app/auth/components/Sidebar";
+import {cookies} from "next/headers";
+import {User} from "@/model";
 
 type Props = {
   children: ReactNode;
 }
 
-const Layout: React.FC<Props> = ({
-  children,
+const Layout: React.FC<Props> = async ({
+  children
 }) => {
+  const getProfileData: () => Promise<User> = async () => {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/user`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Cookie: (await cookies()).toString()
+      }
+    })
+
+    return response.json()
+  }
+
+  const profile = await getProfileData()
+
   return (
     <Box
       sx={{
@@ -18,7 +34,9 @@ const Layout: React.FC<Props> = ({
       }}
     >
       <Header />
-      <Sidebar />
+      <Sidebar
+        profile={profile}
+      />
       <Box
         component="main"
         className="MainContent"
