@@ -1,8 +1,5 @@
 'use client';
 
-import Button from "@mui/joy/Button";
-import { redirect } from 'next/navigation'
-import {useState} from "react";
 import HeaderPath from "@/components/ui/HeaderPath";
 import {Home} from "@mui/icons-material";
 import Typography from "@mui/joy/Typography";

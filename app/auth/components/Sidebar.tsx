@@ -63,7 +63,7 @@ const Sidebar: React.FC<Props> = ({
     },
     {
       name: 'Kreator wycieczki',
-      path: '/auth/create',
+      path: '/auth/travel/create',
       icon: <Create />,
     },
     {
