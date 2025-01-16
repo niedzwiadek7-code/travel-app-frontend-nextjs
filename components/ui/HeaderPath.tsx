@@ -1,3 +1,5 @@
+'use client'
+
 import React, {ReactNode} from "react";
 import {Box, Breadcrumbs, useTheme} from "@mui/joy";
 import {ChevronRightRounded} from "@mui/icons-material";
